@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// 这里就是醉后网页呈现的内容
 function App() {
   return (
     <div className="App">
