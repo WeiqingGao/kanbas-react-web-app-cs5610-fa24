@@ -99,6 +99,88 @@ tag to tell browsers to render the gaps.
                     <li>Romance of the Three Kingdoms</li>
                 </ul>
             </div>
+
+            <div id="wd-tables">
+                <h4>Table Tag</h4>
+                <table border={1} width="100%">
+                    <thead>
+                        <tr>
+                            <th>Quiz</th>
+                            <th>Topic</th>
+                            <th>Date</th>
+                            <th>Grade</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Q1</td>
+                            <td>HTML</td>
+                            <td>09/19/24</td>
+                            <td>85</td>
+                        </tr>
+                        <tr>
+                            <td>Q2</td>
+                            <td>CSS</td>
+                            <td>09/26/24</td>
+                            <td>90</td>
+                        </tr>
+                        <tr>
+                            <td>Q3</td>
+                            <td>JavaScript</td>
+                            <td>10/03/24</td>
+                            <td>95</td>
+                        </tr>
+                        <tr>
+                            <td>Q4</td>
+                            <td>JavaScript</td>
+                            <td>10/10/24</td>
+                            <td>95</td>
+                        </tr>
+                        <tr>
+                            <td>Q5</td>
+                            <td>All learned</td>
+                            <td>10/17/24</td>
+                            <td>90</td>
+                        </tr>
+                        <tr>
+                            <td>Q6</td>
+                            <td>Redux</td>
+                            <td>10/31/24</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Q7</td>
+                            <td>Redux</td>
+                            <td>11/07/24</td>
+                            <td>100</td>
+                        </tr>
+                        <tr>
+                            <td>Q8</td>
+                            <td>Node</td>
+                            <td>11/14/24</td>
+                            <td>80</td>
+                        </tr>
+                        <tr>
+                            <td>Q9</td>
+                            <td>Node</td>
+                            <td>11/21/24</td>
+                            <td>95</td>
+                        </tr>
+                        <tr>
+                            <td>Q10</td>
+                            <td>Mongo</td>
+                            <td>12/05/24</td>
+                            <td>90</td>
+                        </tr>
+                    </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colSpan={3}>Average</td>
+                            <td>92</td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     );
 }
