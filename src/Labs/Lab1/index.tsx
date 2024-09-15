@@ -299,11 +299,19 @@ tag to tell browsers to render the gaps.
                 placeholder="Doe"
                 max="5"
                 value="4"/><br/>
-                
+
             <label htmlFor="wd-text-fields-dob"> Date of birth: </label>
             <input type="date"
                 id="wd-text-fields-dob"
                 value="2000-01-21"/><br/>
+
+            <h4>Anchor tag</h4>
+            Please
+            <a id="wd-lipsum" href="https://ww.lipsum.com">click here</a>
+            to get dummy text<br/>
+
+            
+
         </div>
     );
 }
