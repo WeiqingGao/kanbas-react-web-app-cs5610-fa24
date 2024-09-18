@@ -23,8 +23,10 @@ export default function AssignmentEditor() {
                     </td>
                     <td>
                         <select id="wd-assignment-group">
-                            <option>ASSIGNMENTS</option><option>QUIZZES</option>
-                            <option>EXAMS</option><option>PROJECT</option>
+                            <option selected value="ASSIGNMENTS">ASSIGNMENTS</option>
+                            <option selected value="QUIZZES">QUIZZES</option>
+                            <option selected value="EXAMS">EXAMS</option>
+                            <option selected value="PROJECT">PROJECT</option>
                         </select>
                     </td> 
                 </tr>
@@ -35,8 +37,9 @@ export default function AssignmentEditor() {
                     </td>
                     <td>
                         <select id="wd-assignment-display-grade-as">
-                            <option>Percentage</option><option>Letter</option>
-                            <option>Numberical</option>
+                            <option selected value="PERCENTAGE">Percentage</option>
+                            <option selected value="LETTER">Letter</option>
+                            <option selected value="NUMBERICAL">Numberical</option>
                         </select>
                     </td> 
                 </tr><br/>
@@ -84,7 +87,7 @@ export default function AssignmentEditor() {
                 <tr>
                     <td></td>
                     <td>
-                        <input type="date" id="wd-assignment-due">
+                        <input type="date" name="due-date" id="wd-assignment-due">
                         </input>
                     </td> 
                 </tr><br/>
@@ -100,11 +103,11 @@ export default function AssignmentEditor() {
                 <tr>
                     <td></td>
                     <td align="left" valign="top">
-                        <input type="date" id="wd-assignment-available-from">
+                        <input type="date" name="earliest-available-date" id="wd-assignment-available-from">
                         </input>
                     </td>
                     <td>
-                        <input type="date" id="wd-assignment-available-until">
+                        <input type="date" name="latest-available-date" id="wd-assignment-available-until">
                         </input>
                     </td>
                 </tr>

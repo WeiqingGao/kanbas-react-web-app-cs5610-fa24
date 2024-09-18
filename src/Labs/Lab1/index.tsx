@@ -199,16 +199,17 @@ tag to tell browsers to render the gaps.
             <div id="wd-forms">
                 <h4>Form Elements</h4>
                 <form id="wd-text-fileds">
-                    <h5>Text Fields</h5>
-                    <label htmlFor="wd-text-fields-username">Username:</label>
-                    <input id="wd-text-fields-username" placeholder="jdoe" /><br />
-                    <label htmlFor="wd-text-fields-password">Password:</label>
-                    <input id="wd-text-fields-password" value="123@#$asd" /><br />
-                    <label htmlFor="wd-text-fields-first-name">First name:</label>
-                    <input id="wd-text-fields-first-name" title="John" /> <br />
-                    <label htmlFor="wd-text-fields-last-name">Last name:</label>
-                    <input id="wd-text-fields-last-name" placeholder="Doe" 
-                    value="Wonderland" title="The last name" />
+                <h5>Text Fields</h5>
+                <label htmlFor="wd-text-fields-username">Username:</label>
+                <input id="wd-text-fields-username" placeholder="jdoe" /> <br />
+                <label htmlFor="wd-text-fields-password">Password:</label>
+                <input type="password" id="wd-text-fields-password" value="123@#$asd" />
+                <br />
+                <label htmlFor="wd-text-fields-first-name">First name:</label>
+                <input type="text" id="wd-text-fields-first-name" title="John" /> <br />
+                <label htmlFor="wd-text-fields-last-name">Last name:</label>
+                <input type="text" id="wd-text-fields-last-name" placeholder="Doe"
+                value="Wonderland" title="The last name" />
                 </form>
             </div>
 
@@ -310,6 +311,9 @@ tag to tell browsers to render the gaps.
             <a id="wd-lipsum" href="https://ww.lipsum.com">click here</a>
             to get dummy text<br/>
 
+            Please
+            <a id="wd-github" href="https://github.com">click here</a>
+            to the code repository on GitHub<br/>
             
 
         </div>
