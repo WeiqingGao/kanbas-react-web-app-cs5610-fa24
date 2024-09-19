@@ -10,6 +10,7 @@ export default function AssignmentEditor() {
                 application 
             </textarea><br />
             <br />
+            
             <table>
                 <tr>
                     <td align="right" valign="top">
