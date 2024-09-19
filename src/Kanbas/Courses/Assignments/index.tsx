@@ -19,16 +19,16 @@ export default function Assignments() {
                     Due May 13 at 11:59pm | 100 pts 
                 </li>
                 <li className="wd-assignment-list-item">
-                    <a className="wd-assignment-list-item"
-                    href="#/Kanbas/Courses/1234/Assignment/123">
+                    <a className="wd-assignment-link"
+                    href="#/Kanbas/Courses/1234/Assignments/123">
                         A2 - CSS + BOOTSTRAP
                     </a><br/>
                     Multiple Modules | Not available until May 13 at 12:00am |
                     Due May 20 at 11:59pm | 100 pts 
                 </li>
                 <li className="wd-assignment-list-item">
-                    <a className="wd-assignment-list-item"
-                    href="#/Kanbas/Courses/1234/Assignment/123">
+                    <a className="wd-assignment-link"
+                    href="#/Kanbas/Courses/1234/Assignments/123">
                         A3 - JAVASCRIPT + REACT
                     </a><br/>
                     Multiple Modules | Not available until May 20 at 12:00am |

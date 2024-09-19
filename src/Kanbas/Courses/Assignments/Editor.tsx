@@ -4,7 +4,10 @@ export default function AssignmentEditor() {
             <label htmlFor="wd-name">Assignment Name</label>
             <input id="wd-name" value="A1 - ENV + HTML" /><br /><br />
             <textarea id="wd-description" cols={50} rows={5} >
-                The assignment is available online Submit a link to the landing page of
+                The assignment is available online Submit a link to the landing page of your Web
+                application running on Netlify. The landing page should include the following: Your 
+                full name and section links to each of the lab assignments Link to the Kanbas 
+                application 
             </textarea><br />
             <br />
             <table>
@@ -44,24 +47,35 @@ export default function AssignmentEditor() {
                     </td> 
                 </tr><br/>
                 <tr>
-                    <td></td>
                     <td align="right" valign="top">
-                        <label htmlFor="wd-assignment-online-entry">Online Entry Options</label>
+                        <label htmlFor="wd-submission-type">Submission Type</label>
+                    </td>
+                    <td>
+                        <select id="wd-submission-type">
+                            <option selected value="ONLINE">Online</option>
+                            <option selected value="INPERSON">In person</option>
+                        </select>
+                    </td>
+                </tr><br/>
+                <tr>
+                    <td></td>
+                    <td align="left" valign="top">
+                        <label htmlFor="wd-text-entry">Online Entry Options</label>
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td>
-                        <input type="checkbox" id="text-entry" name="online-entry-option"/>
-                        <label htmlFor="wd-assignment-text-entry">Text Entry</label><br/>
-                        <input type="checkbox" id="website-url" name="online-entry-option"/>
-                        <label htmlFor="wd-assignment-website-url">Website URL</label><br/>
-                        <input type="checkbox" id="media-recording" name="online-entry-option"/>
-                        <label htmlFor="wd-assignment-media-recording">Media Recording</label><br/>
-                        <input type="checkbox" id="student-annotation" name="online-entry-option"/>
-                        <label htmlFor="wd-assignment-student-annotation-">Student Annotation</label><br/>
-                        <input type="checkbox" id="file-uploads" name="online-entry-option"/>
-                        <label htmlFor="wd-assignment-file-uploads">File Uploads</label>
+                        <input type="checkbox" id="wd-text-entry" name="online-entry-option"/>
+                        <label htmlFor="wd-text-entry">Text Entry</label><br/>
+                        <input type="checkbox" id="wd-website-url" name="online-entry-option"/>
+                        <label htmlFor="wd-website-url">Website URL</label><br/>
+                        <input type="checkbox" id="wd-media-recordings" name="online-entry-option"/>
+                        <label htmlFor="wd-media-recordings">Media Recording</label><br/>
+                        <input type="checkbox" id="wd-student-annotation" name="online-entry-option"/>
+                        <label htmlFor="wd-student-annotation">Student Annotation</label><br/>
+                        <input type="checkbox" id="wd-file-upload" name="online-entry-option"/>
+                        <label htmlFor="wd-file-upload">File Uploads</label>
                     </td> 
                 </tr><br/>
                 <tr>
@@ -69,45 +83,45 @@ export default function AssignmentEditor() {
                         <label>Assign</label>
                     </td>
                     <td align="left" valign="top">
-                        <label htmlFor="wd-assignment-assign-to">Assign to</label>
+                        <label htmlFor="wd-assign-to">Assign to</label>
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td align="right" valign="top">
-                        <input id="wd-assignment-assign-to" value={"Everyone"} />
+                        <input id="wd-assign-to" value={"Everyone"} />
                     </td>
                 </tr><br/>
                 <tr>
                     <td></td>
                     <td align="left" valign="top">
-                        <label htmlFor="wd-assignment-due">Due</label>
+                        <label htmlFor="wd-due-date">Due</label>
                     </td>
-                </tr>
+                </tr> 
                 <tr>
                     <td></td>
                     <td>
-                        <input type="date" name="due-date" id="wd-assignment-due">
+                        <input type="date" name="due-date" id="wd-due-date" defaultValue="2024-05-13">
                         </input>
                     </td> 
                 </tr><br/>
-                <tr>
+                <tr> 
                     <td></td>
                     <td align="left" valign="top">
-                        <label htmlFor="wd-assignment-available-from">Available from</label>
+                        <label htmlFor="wd-available-from">Available from</label>
                     </td>
                     <td align="left" valign="top">
-                        <label htmlFor="wd-assignment-available-until">Until</label>
+                        <label htmlFor="wd-available-until">Until</label>
                     </td>
                 </tr>
                 <tr>
                     <td></td>
                     <td align="left" valign="top">
-                        <input type="date" name="earliest-available-date" id="wd-assignment-available-from">
+                        <input type="date" name="earliest-available-date" id="wd-available-from" defaultValue="2024-05-06">
                         </input>
                     </td>
                     <td>
-                        <input type="date" name="latest-available-date" id="wd-assignment-available-until">
+                        <input type="date" name="latest-available-date" id="wd-available-until" defaultValue="2024-05-20">
                         </input>
                     </td>
                 </tr>
