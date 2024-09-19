@@ -312,7 +312,7 @@ tag to tell browsers to render the gaps.
             to get dummy text<br/>
 
             Please
-            <a id="wd-github" href="https://github.com">click here</a>
+            <a id="wd-github" href="https://github.com"> click here </a>
             to the code repository on GitHub<br/>
             
 
