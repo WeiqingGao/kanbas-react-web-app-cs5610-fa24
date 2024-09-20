@@ -1,7 +1,7 @@
 export default function AssignmentEditor() {
     return (
         <div id="wd-assignments-editor">
-            <label htmlFor="wd-name">Assignment Name</label>
+            <label htmlFor="wd-name">Assignment Name</label><br/>
             <input id="wd-name" value="A1 - ENV + HTML" /><br /><br />
             <textarea id="wd-description" cols={50} rows={5} >
                 The assignment is available online Submit a link to the landing page of your Web
@@ -28,9 +28,9 @@ export default function AssignmentEditor() {
                     <td>
                         <select id="wd-assignment-group">
                             <option selected value="ASSIGNMENTS">ASSIGNMENTS</option>
-                            <option selected value="QUIZZES">QUIZZES</option>
-                            <option selected value="EXAMS">EXAMS</option>
-                            <option selected value="PROJECT">PROJECT</option>
+                            <option value="QUIZZES">QUIZZES</option>
+                            <option value="EXAMS">EXAMS</option>
+                            <option value="PROJECT">PROJECT</option>
                         </select>
                     </td> 
                 </tr>
@@ -42,8 +42,8 @@ export default function AssignmentEditor() {
                     <td>
                         <select id="wd-assignment-display-grade-as">
                             <option selected value="PERCENTAGE">Percentage</option>
-                            <option selected value="LETTER">Letter</option>
-                            <option selected value="NUMBERICAL">Numberical</option>
+                            <option value="LETTER">Letter</option>
+                            <option value="NUMERICAL">Numerical</option>
                         </select>
                     </td> 
                 </tr><br/>
@@ -54,7 +54,7 @@ export default function AssignmentEditor() {
                     <td>
                         <select id="wd-submission-type">
                             <option selected value="ONLINE">Online</option>
-                            <option selected value="INPERSON">In person</option>
+                            <option value="INPERSON">In person</option>
                         </select>
                     </td>
                 </tr><br/>
