@@ -1,14 +1,36 @@
+/* select by element
 p {
-    background-color: "blue"; 
-    color: "white";
-    margin-top: 50px;
-    margin-left: 80px;
+    background-color: blue; 
+    color: white;
+}
+*/
+
+/* select by id selectors */
+p#wd-id-selector-1 {
+    background-color: red;
+    color: white;
+}
+p#wd-id-selector-2 {
+    background-color: yellow;
+    color: black;
 }
 
-.fg-color-black { color: black; }
-.fg-color-white { color: white; }
-.fg-color-blue { color: #7070ff; }
-.fg-color-red { color: #ff7070; }
-.fg-color-green { color: green; }
+/* select by class selectors */
+.wd-class-selector {
+    background-color: yellow;
+    color: blue;
+}
+
+/* select by document structure */
+.wd-selector-1 .wd-selector-3 { 
+    background-color: red; 
+    color: white;
+}
+.wd-selector-2 > .wd-selector-3 > .wd-selector-4 {
+    background-color: yellow;
+    color: blue; 
+}
+
+
 
 /* javascript 用，分割不同的attribute，css用“；” */
