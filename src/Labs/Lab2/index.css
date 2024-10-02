@@ -46,4 +46,37 @@ p#wd-id-selector-2 {
 .wd-bg-color-green { background-color: green; }
 .wd-bg-color-gray { background-color: lightgray; }
 
+/* border */
+.wd-border-fat {border-width: 20px 30px 20px 30px; }
+.wd-border-thin { border-width: 4px; }
+.wd-border-solid { border-style: solid; }
+.wd-border-dashed { border-style: dashed; }
+.wd-border-yellow { border-color: #ffff07; }
+.wd-border-red { border-color: #ff7070; }
+.wd-border-blue { border-color: #7070ff; }
+
+/* padding */
+.wd-padded-top-left {
+    padding-top: 50px;
+    padding-left: 50px;
+}
+.wd-padded-bottom-right {
+    padding-bottom: 50px;
+    padding-right: 50px;
+}
+.wd-padded-fat {
+    padding: 50px;
+}
+
+/* margin */
+.wd-margin-bottom { 
+    margin-bottom: 50px;
+}
+.wd-margin-right-left { 
+    margin-left: 50px; margin-right: 50px;
+}
+.wd-margin-all-around { 
+    margin: 30px;
+}
+
 /* javascript 用，分割不同的attribute，css用“；” */

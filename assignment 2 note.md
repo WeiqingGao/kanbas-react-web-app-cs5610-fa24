@@ -26,3 +26,29 @@ e.g.
 `.the-sun { color: rgb(255,255,0); }`
 `.the-sky { color: blue; }`
 `.ketchup { color: #FF0000; }`
+
+## Foreground Color
+## Background Color
+```css
+/* foreground color */
+.wd-fg-color-black { color: black; }
+.wd-fg-color-white { color: white; }
+.wd-fg-color-blue { color: #7070ff; }
+.wd-fg-color-red { color: #ff7070; }
+.wd-fg-color-green { color: green; }
+
+/* background color */
+.wd-bg-color-yellow { background-color: #ffff07; }
+.wd-bg-color-blue { background-color: #7070ff; }
+.wd-bg-color-red { background-color: #ff7070; }
+.wd-bg-color-green { background-color: green; }
+.wd-bg-color-gray { background-color: lightgray; }
+```
+应用于html element时，命名className为对应的颜色名
+```tsx
+<h3 className="wd-bg-color-blue wd-fg-color-white">Background color</h3>
+```
+
+# Border
+
+# Margin & Padding
