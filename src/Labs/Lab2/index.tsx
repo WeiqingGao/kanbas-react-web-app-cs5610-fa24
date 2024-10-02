@@ -11,10 +11,14 @@ import Zindex from "../Lab1/Zindex";
 import Float from "./Float";
 import GridLayout from "./GridLayout";
 import Flex from "./Flex";
+import ReactIconsSampler from "./ReactIcons";
+import BootstrapGrid from "./BootstrapGrid";
+import ScreenSizeLabel from "./ScreenSizeLabel";
+
 
 export default function Lab2() {
   return (
-    <div id="wd-lab2">
+    <div id="wd-lab2" className="container">
         <h2>Lab 2 - Cascading Style Sheets</h2>
         <h3>Styling with the STYLE attribute</h3>
         <p>
@@ -80,6 +84,10 @@ export default function Lab2() {
         <Float />
         <GridLayout />
         <Flex />
+
+        <ReactIconsSampler />
+        <BootstrapGrid />
+        <ScreenSizeLabel />
     </div>
   );
 }
