@@ -146,5 +146,62 @@ p#wd-id-selector-2 {
     bottom: 50%;
 }
 
+/* z-index */
+.wd-zindex-bring-to-front {
+    z-index: 10;
+}
+
+/* float */
+.wd-float-left { 
+    float: left;
+}
+.wd-float-right { 
+    float: right; 
+    height: 100px;
+}
+.wd-float-done { 
+    clear: both;
+}
+
+/* grid layout */
+.wd-grid-row {
+    clear: both;
+}
+.wd-grid-col-half-page {
+    width: 50%;
+    float: left;
+}
+.wd-grid-col-third-page {
+    width: 33%;
+    float: left;
+}
+.wd-grid-col-two-thirds-page {
+    width: 67%;
+    float: left;
+}
+.wd-grid-col-left-sidebar {
+    width: 20%;
+    float: left;
+}
+.wd-grid-col-main-content {
+    width: 60%;
+    float: left;
+}
+.wd-grid-col-right-sidebar {
+    width: 20%;
+    float: left;
+}
+
+/* flex */
+.wd-flex-row-container {
+    display: flex;
+    flex-direction: row;
+}
+.wd-flex-grow-1 {
+    flex-grow: 1;
+}
+.wd-width-75px {
+    width: 75px;
+}
 
 /* javascript 用，分割不同的attribute，css用“；” */
