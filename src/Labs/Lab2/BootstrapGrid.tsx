@@ -1,8 +1,9 @@
 export default function BootstrapGrid() {
     return (
         <div>
+            <h2>Bootstrap</h2>
             <div id="wd-bs-grid-system">
-                <h2>Bootstrap</h2>
+                <h2>Grid system</h2>
                 <div className="row">
                     <div className="col bg-danger text-white">
                         <h3>Left half</h3>

@@ -1,5 +1,6 @@
 import { FaPlus } from "react-icons/fa6";
 import GreenCheckmark from "./GreenCheckmark";
+import { IoBanOutline } from "react-icons/io5";
 
 export default function ModulesControls() {
     return (
@@ -27,12 +28,32 @@ export default function ModulesControls() {
                             Publish modules only
                         </a>
                     </li>
-                    {/* Create two more items with IDs wd-unpublish-all-modules-and-items and
-                    wd-unpublish-modules-only with labels Unpublish all modules and items
-                    and Unpublish modules only */} 
+                    <li>
+                        <a id=" wd-unpublish-all-modules-and-items" className="dropdown-item" href="#">
+                            <IoBanOutline />
+                            Unpublish all modules and items
+                        </a>
+                    </li>
+                    <li>
+                        <a id="wd-unpublish-modules-only" className="dropdown-item" href="#">
+                            <IoBanOutline />
+                            Unpublish modules only
+                        </a>
+                    </li>
                 </ul>
             </div>
-            {/* Implement the View Progress and Collapse All buttons with IDs wd-view-progress and wd-collapse-all */} 
+            <div className="me-1 float-end">
+                <button id="wd-publish-all-btn" className="btn btn-lg btn-secondary"
+                        type="button">
+                    Collapse All
+                </button>
+            </div>
+            <div className="me-1 float-end">
+                <button id="wd-publish-all-btn" className="btn btn-lg btn-secondary"
+                        type="button">
+                    View Progress
+                </button>
+            </div>
         </div>
     );
 }

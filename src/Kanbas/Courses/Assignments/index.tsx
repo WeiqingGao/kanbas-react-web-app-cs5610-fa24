@@ -3,6 +3,7 @@ import AllAssignmentsControlButtons from "./AllAssignmentsControlButtons";
 import { FaCaretDown, FaPlus, FaRegEdit, FaSearch } from "react-icons/fa";
 import LessonControlButtons from "../Modules/LessonControlButtons";
 import BackgroundColors from "../../../Labs/Lab2/BackgroundColors";
+import { SlMagnifier } from "react-icons/sl";
 import "./style.css";
 
 export default function Assignments() {
@@ -15,19 +16,21 @@ export default function Assignments() {
                     </span>
                     <input
                         type="text"
+                        id="wd-assignment-search"
                         className="form-control"
                         placeholder="Search..."
                     />
                 </div>
 
                 <div className="d-flex">
-                    <button className="btn btn-outline-dark me-2"  
-                            style={{ backgroundColor: '#f1f2f3', color: 'black' }}>
-                        <FaPlus className="me-1"/> Group
+                    <button id = "wd-assignment-group" className="btn btn-outline-dark btn-lg me-2"
+                        style={{ backgroundColor: '#f1f2f3', color: 'black' }}>
+                        <FaPlus className="position-relative me-2" /> 
+                        Group
                     </button>
-
-                    <button className="btn btn-danger text-white">
-                        <FaPlus className="me-1" /> Assignment
+                    <button id="wd-assignment-add" className="btn btn-lg btn-danger me-2">
+                        <FaPlus className="position-relative me-2"/> 
+                        Assignment
                     </button>
                 </div>
             </div>
@@ -36,12 +39,12 @@ export default function Assignments() {
                 <li className="wd-assignment list-group-item p-0 mb-5 fs-5 border-white">
                     <div className="wd-title p-3 ps-2" style={{ backgroundColor: '#f1f2f3' }}>
                         <BsGripVertical className="me-2 fs-3" />
-                        <FaCaretDown className="me-2" fs-3/>
+                        <FaCaretDown className="me-2 fs-3"/>
                         ASSIGNMENTS
                         <AllAssignmentsControlButtons/>
                     </div>
 
-                    <ul className="wd-assignment list-group rounded-0">
+                    <ul id="wd-assignment" className="list-group rounded-0">
                         <li className="wd-lesson list-group-item p-3 ps-1
                             d-flex align-items-center justify-content-between">
                             <div className="d-flex align-items-center me-3">

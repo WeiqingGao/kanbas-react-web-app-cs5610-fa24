@@ -6,7 +6,9 @@ export default function Positions () {
                 <div className="wd-bg-color-gray">
                     <div className="wd-bg-color-yellow
                                     wd-dimension-portrait">
-                        Portrait
+                        <div className="wd-pos-relative-nudge-down-right">
+                            Portrait
+                        </div>
                     </div>
                     <div className="wd-pos-relative-nudge-up-right
                                     wd-bg-color-blue wd-fg-color-white
@@ -52,5 +54,5 @@ export default function Positions () {
                 Fixed position
             </div>
         </div>
-      );
-    };
+    );
+}

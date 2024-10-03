@@ -4,7 +4,8 @@ import { FaPlus } from "react-icons/fa";
 export default function AllAssignmentsControlButtons() {
     return (
         <div className="float-end">
-            <div className="badge rounded-pill bg-light text-dark me-2">
+            <div className="badge rounded-pill text-dark me-2" 
+                 style={{ backgroundColor: '#f1f2f3', border:'1px solid #ccc'}}>
                 40% of Total
             </div>
             <FaPlus className="me-2" />
@@ -13,10 +14,3 @@ export default function AllAssignmentsControlButtons() {
     );
 }
 
-/*
-<p className="wd-rounded-corners-all-around 
-                wd-border-thin wd-border-blue wd-border-solid 
-                wd-padding-fat">
-                40% of Total
-            </p>
-*/
