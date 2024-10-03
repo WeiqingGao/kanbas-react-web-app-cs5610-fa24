@@ -1,11 +1,9 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 import Labs from "./Labs";
 import Kanbas from "./Kanbas";
 import { HashRouter, Route, Routes, Navigate } from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
     <HashRouter> 
       <div>
@@ -18,5 +16,3 @@ function App() {
     </HashRouter>
   );
 }
-
-export default App;
