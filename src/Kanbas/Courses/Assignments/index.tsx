@@ -49,8 +49,8 @@ export default function Assignments() {
                                 <FaRegEdit className="me-3 fs-4" />
                             </div>
                             
-                            <a className="wd-assignment-link"
-                                   href="#/Kanbas/Courses/1234/Assignments/123">
+                            <a className="wd-assignment-link text-dark text-decoration-none"
+                                href="#/Kanbas/Courses/1234/Assignments/123">
                                 <div className="d-flex flex-column">
                                     <span>A1</span>
                                     <span className="text-danger">
@@ -78,23 +78,25 @@ export default function Assignments() {
                                 <FaRegEdit className="me-3 fs-4" />
                             </div>
                             
-                            <div className="d-flex flex-column">
-                                <span>A2</span>
-                                <span className="text-danger">
-                                    Multiple Modules
-                                    <span className="text-dark fw-bold mx-2">|</span>
-                                    <span className="fw-bold text-dark">Not available until </span>
-                                    <span className="text-dark">May 13 at 12:00am</span>
-                                    <span className="text-dark fw-bold mx-2">|</span>
-                                </span>
-                                <span>
-                                    <span className="fw-bold text-dark">Due </span>
-                                    <span className="text-dark">May 20 at 11:59pm</span>
-                                    <span className="text-dark fw-bold mx-2">|</span>
-                                    <span>100 pts</span>
-                                </span>
-                            </div>
-                            
+                            <a className="wd-assignment-link text-dark text-decoration-none"
+                                href="#/Kanbas/Courses/1234/Assignments/123">
+                                <div className="d-flex flex-column">
+                                    <span>A1</span>
+                                    <span className="text-danger">
+                                        Multiple Modules
+                                        <span className="text-dark fw-bold mx-2">|</span>
+                                        <span className="fw-bold text-dark">Not available until </span>
+                                        <span className="text-dark">May 13 at 12:00am</span>
+                                        <span className="text-dark fw-bold mx-2">|</span>
+                                    </span>
+                                    <span>
+                                        <span className="fw-bold text-dark">Due </span>
+                                        <span className="text-dark">May 20 at 11:59pm</span>
+                                        <span className="text-dark fw-bold mx-2">|</span>
+                                        <span>100 pts</span>
+                                    </span>
+                                </div>
+                            </a>
                             <LessonControlButtons />
                         </li>
 
@@ -105,23 +107,25 @@ export default function Assignments() {
                                 <FaRegEdit className="me-3 fs-4" />
                             </div>
                             
-                            <div className="d-flex flex-column">
-                                <span>A3</span>
-                                <span className="text-danger">
-                                    Multiple Modules
-                                    <span className="text-dark fw-bold mx-2">|</span>
-                                    <span className="fw-bold text-dark">Not available until </span>
-                                    <span className="text-dark">May 20 at 12:00am</span>
-                                    <span className="text-dark fw-bold mx-2">|</span>
-                                </span>
-                                <span>
-                                    <span className="fw-bold text-dark">Due </span>
-                                    <span className="text-dark">May 27 at 11:59pm</span>
-                                    <span className="text-dark fw-bold mx-2">|</span>
-                                    <span>100 pts</span>
-                                </span>
-                            </div>
-                            
+                            <a className="wd-assignment-link text-dark text-decoration-none"
+                                href="#/Kanbas/Courses/1234/Assignments/123">
+                                <div className="d-flex flex-column">
+                                    <span>A2</span>
+                                    <span className="text-danger">
+                                        Multiple Modules
+                                        <span className="text-dark fw-bold mx-2">|</span>
+                                        <span className="fw-bold text-dark">Not available until </span>
+                                        <span className="text-dark">May 20 at 12:00am</span>
+                                        <span className="text-dark fw-bold mx-2">|</span>
+                                    </span>
+                                    <span>
+                                        <span className="fw-bold text-dark">Due </span>
+                                        <span className="text-dark">May 27 at 11:59pm</span>
+                                        <span className="text-dark fw-bold mx-2">|</span>
+                                        <span>100 pts</span>
+                                    </span>
+                                </div>
+                            </a>
                             <LessonControlButtons />
                         </li>
                     </ul>
