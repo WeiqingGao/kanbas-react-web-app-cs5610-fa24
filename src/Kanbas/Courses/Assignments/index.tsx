@@ -2,7 +2,6 @@ import { BsGripVertical } from "react-icons/bs";
 import AllAssignmentsControlButtons from "./AllAssignmentsControlButtons";
 import { FaCaretDown, FaPlus, FaRegEdit, FaSearch } from "react-icons/fa";
 import LessonControlButtons from "../Modules/LessonControlButtons";
-import "./style.css";
 
 export default function Assignments() {
     return (

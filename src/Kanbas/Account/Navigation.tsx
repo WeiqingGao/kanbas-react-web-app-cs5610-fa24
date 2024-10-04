@@ -1,23 +1,38 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Navigation.css";
 
 export default function AccountNavigation() {
     return (
-        <div id="wd-account-navigation">
-            <Link to="/Kanbas/Account/Signin" id="wd-course-home-link"
-                className="list-group-item text-danger border border-0"> 
-                Signin 
-            </Link>
+        <div id="wd-account-navigation" style={{ display: "flex", flexDirection: "column" }}>
+            <NavLink to="/Kanbas/Account/Signin" id="wd-course-home-link"
+                className="nav-link"
+                style={({ isActive }) => ({
+                    color: isActive ? "black" : "red",
+                    borderLeft: isActive ? "2px solid black" : "none",
+                    paddingLeft: "6px"
+                })}> 
+                Signin
+            </NavLink>
 
-            <Link to="/Kanbas/Account/Signup" id="wd-course-home-link"
-                className="list-group-item text-danger border border-0"> 
+            <NavLink to="/Kanbas/Account/Signup" id="wd-course-home-link"
+                className="nav-link"
+                style={({ isActive }) => ({
+                    color: isActive ? "black" : "red",
+                    borderLeft: isActive ? "2px solid black" : "none",
+                    paddingLeft: "6px"
+                })}> 
                 Signup 
-            </Link>
+            </NavLink>
 
-            <Link to="/Kanbas/Account/Profile" id="wd-course-home-link"
-                className="list-group-item text-danger border border-0"> 
+            <NavLink to="/Kanbas/Account/Profile" id="wd-course-home-link"
+                className="nav-link"
+                style={({ isActive }) => ({
+                    color: isActive ? "black" : "red",
+                    borderLeft: isActive ? "2px solid black" : "none",
+                    paddingLeft: "6px"
+                })}> 
                 Profile 
-            </Link>
+            </NavLink>
         </div>
     );
 }
