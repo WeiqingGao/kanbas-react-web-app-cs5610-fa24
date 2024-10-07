@@ -10,5 +10,6 @@ export default function FilterFunction() {
         evenNumbers = {evenNumbers}    <br />
         oddNumbers = {oddNumbers}      <hr />
       </div>
-  );}
+  );
+}
   
