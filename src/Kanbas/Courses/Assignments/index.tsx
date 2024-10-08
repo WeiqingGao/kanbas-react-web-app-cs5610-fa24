@@ -2,8 +2,13 @@ import { BsGripVertical } from "react-icons/bs";
 import AllAssignmentsControlButtons from "./AllAssignmentsControlButtons";
 import { FaCaretDown, FaPlus, FaRegEdit, FaSearch } from "react-icons/fa";
 import LessonControlButtons from "../Modules/LessonControlButtons";
+import { useParams } from "react-router";
+import * as db from "../../Database";
+import { Link } from "react-router-dom";
 
 export default function Assignments() {
+    const { cid } = useParams();
+    const assignments = db.assignments;
     return (
         <div>
             <div className="d-flex justify-content-between align-items-center mb-4">
@@ -42,92 +47,37 @@ export default function Assignments() {
                     </div>
 
                     <ul id="wd-assignment" className="list-group rounded-0">
-                        <li className="wd-lesson list-group-item p-3 ps-1
-                            d-flex align-items-center justify-content-between">
-                            <div className="d-flex align-items-center me-3">
-                                <BsGripVertical className="me-2 fs-3" />
-                                <FaRegEdit className="me-3 fs-4" />
-                            </div>
-                            
-                            <a className="wd-assignment-link text-dark text-decoration-none"
-                                href="#/Kanbas/Courses/1234/Assignments/123">
-                                <div className="d-flex flex-column">
-                                    <span>A1</span>
-                                    <span className="text-danger">
-                                        Multiple Modules
-                                        <span className="text-dark fw-bold mx-2">|</span>
-                                        <span className="fw-bold text-dark">Not available until </span>
-                                        <span className="text-dark">May 6 at 12:00am</span>
-                                        <span className="text-dark fw-bold mx-2">|</span>
-                                    </span>
-                                    <span>
-                                        <span className="fw-bold text-dark">Due </span>
-                                        <span className="text-dark">May 13 at 11:59pm</span>
-                                        <span className="text-dark fw-bold mx-2">|</span>
-                                        <span>100 pts</span>
-                                    </span>
+                        {assignments
+                        .filter((assignment: any) => assignment.course === cid)
+                        .map((assignment: any) => (
+                            <li className="wd-lesson list-group-item p-3 ps-1
+                                d-flex align-items-center justify-content-between">
+                                <div className="d-flex align-items-center me-3">
+                                    <BsGripVertical className="me-2 fs-3" />
+                                    <FaRegEdit className="me-3 fs-4" />
                                 </div>
-                            </a>
+                                <Link className="wd-assignment-link text-dark text-decoration-none"
+                                    to={`/Kanbas/Courses/${assignment.course}/Assignments/${assignment._id}`}>
+                                    <div className="d-flex flex-column">
+                                        <span>{assignment._id}</span>
+                                        <span className="text-danger">
+                                            {assignment.title}
+                                            <span className="text-dark fw-bold mx-2">|</span>
+                                            <span className="fw-bold text-dark">Not available until </span>
+                                            <span className="text-dark">May 6 at 12:00am</span>
+                                            <span className="text-dark fw-bold mx-2">|</span>
+                                        </span>
+                                        <span>
+                                            <span className="fw-bold text-dark">Due </span>
+                                            <span className="text-dark">May 13 at 11:59pm</span>
+                                            <span className="text-dark fw-bold mx-2">|</span>
+                                            <span>100 pts</span>
+                                        </span>
+                                    </div>
+                                </Link>
                             <LessonControlButtons />
-                        </li>
-
-                        <li className="wd-lesson list-group-item p-3 ps-1
-                            d-flex align-items-center justify-content-between">
-                            <div className="d-flex align-items-center me-3">
-                                <BsGripVertical className="me-2 fs-3" />
-                                <FaRegEdit className="me-3 fs-4" />
-                            </div>
-                            
-                            <a className="wd-assignment-link text-dark text-decoration-none"
-                                href="#/Kanbas/Courses/1234/Assignments/123">
-                                <div className="d-flex flex-column">
-                                    <span>A1</span>
-                                    <span className="text-danger">
-                                        Multiple Modules
-                                        <span className="text-dark fw-bold mx-2">|</span>
-                                        <span className="fw-bold text-dark">Not available until </span>
-                                        <span className="text-dark">May 13 at 12:00am</span>
-                                        <span className="text-dark fw-bold mx-2">|</span>
-                                    </span>
-                                    <span>
-                                        <span className="fw-bold text-dark">Due </span>
-                                        <span className="text-dark">May 20 at 11:59pm</span>
-                                        <span className="text-dark fw-bold mx-2">|</span>
-                                        <span>100 pts</span>
-                                    </span>
-                                </div>
-                            </a>
-                            <LessonControlButtons />
-                        </li>
-
-                        <li className="wd-lesson list-group-item p-3 ps-1
-                            d-flex align-items-center justify-content-between">
-                            <div className="d-flex align-items-center me-3">
-                                <BsGripVertical className="me-2 fs-3" />
-                                <FaRegEdit className="me-3 fs-4" />
-                            </div>
-                            
-                            <a className="wd-assignment-link text-dark text-decoration-none"
-                                href="#/Kanbas/Courses/1234/Assignments/123">
-                                <div className="d-flex flex-column">
-                                    <span>A2</span>
-                                    <span className="text-danger">
-                                        Multiple Modules
-                                        <span className="text-dark fw-bold mx-2">|</span>
-                                        <span className="fw-bold text-dark">Not available until </span>
-                                        <span className="text-dark">May 20 at 12:00am</span>
-                                        <span className="text-dark fw-bold mx-2">|</span>
-                                    </span>
-                                    <span>
-                                        <span className="fw-bold text-dark">Due </span>
-                                        <span className="text-dark">May 27 at 11:59pm</span>
-                                        <span className="text-dark fw-bold mx-2">|</span>
-                                        <span>100 pts</span>
-                                    </span>
-                                </div>
-                            </a>
-                            <LessonControlButtons />
-                        </li>
+                            </li>
+                        ))}
                     </ul>
                 </li>
             </ul>
