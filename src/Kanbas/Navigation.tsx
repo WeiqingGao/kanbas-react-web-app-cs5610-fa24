@@ -27,8 +27,10 @@ export default function KanbasNavigation() {
             <Link to="/Kanbas/Account" id="wd-account-link"
                   className={`list-group-item text-center border-0 bg-black
                     ${pathname.includes("Account") ? "bg-white text-danger" : "bg-black text-white"}`}>
-                <FaRegCircleUser className={`fs-1 ${pathname.includes("Account") ? "text-danger" : "text-white"}`} />
-                Account
+                <div className="d-flex flex-column align-items-center">
+                    <FaRegCircleUser className={`fs-1 ${pathname.includes("Account") ? "text-danger" : "text-white"}`} />
+                    Account
+                </div>
             </Link>
 
             {/* dynamic links */}
