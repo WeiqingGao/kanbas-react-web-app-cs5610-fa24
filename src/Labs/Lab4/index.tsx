@@ -11,6 +11,7 @@ import PassingDataOnEvent from "./PassingDataOnEvent";
 import PassingFunctions from "./PassingFunctions";
 import StringStateVariables from "./StringStateVariables";
 import ReduxExamples from "./ReduxExamples";
+import { useSelector } from "react-redux";
 
 
 export default function Lab4() {
