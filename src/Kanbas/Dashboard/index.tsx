@@ -17,6 +17,18 @@ export default function Dashboard() {
         description: "New Description"
     });
 
+    const updateCourse = () => {
+        setCourses(
+            courses.map((c) => {
+                if (c._id === course._id) {
+                    return course;
+                } else {
+                    return c;
+                }
+            })
+        );
+    };
+
     // add a new course
     const addNewCourse = () => {
         const newCourse = { ... course, _id: new Date().getTime().toString() };
@@ -27,14 +39,22 @@ export default function Dashboard() {
     const deleteCourse = (courseId: string) => {
         setCourses(courses.filter((courese) => course.id !== courseId));
     };
-
+    
     return (
         <div id="wd-dashboard">
             <h1 id="wd-dashboard-title">Dashboard</h1><hr />
             <h5>New Course
-                <button className="btn btn-primary float-end"
-                        id="wd-add-new-course-click"
-                        onClick={addNewCourse} > Add </button>
+                <button 
+                    className="btn btn-primary float-end"
+                    id="wd-add-new-course-click"
+                    onClick={addNewCourse} > 
+                    Add 
+                </button>
+                <button
+                    className="btn btn-warning float-end me-2"
+                    onClick={updateCourse} id="wd-update-course-click">
+                    Update
+                </button>
             </h5><hr/>
             <input value={course.name} className="form-control mb-2"
                    onChange={(e) => setCourse({ ...courses, name: e.target.value})} />
@@ -58,12 +78,23 @@ export default function Dashboard() {
                                             {course.description}
                                         </p>
                                         <button className="btn btn-primary"> Go </button>
-                                        <button onClick={(event) => {
-                                            event.preventDefault();
-                                            deleteCourse(course._id);
-                                        }} className="btn btn-danger float-end"
-                                        id="wd-delete-course-click">
+                                        <button 
+                                            onClick={(event) => {
+                                                event.preventDefault();
+                                                deleteCourse(course._id);
+                                            }} 
+                                            className="btn btn-danger float-end"
+                                            id="wd-delete-course-click">
                                             Delete
+                                        </button>
+                                        <button 
+                                            id="wd-edit-course-link"
+                                            onClick={(event) => {
+                                                event.preventDefault();
+                                                setCourse(course);
+                                            }}
+                                            className="btn btn-warning me-2 float-end" >
+                                            Edit
                                         </button>
                                     </div>
                                 </Link>
