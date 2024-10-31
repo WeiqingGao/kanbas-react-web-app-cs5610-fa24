@@ -2,48 +2,23 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import * as db from "../Database";
 
-export default function Dashboard() {
-    // initialize courses by db.courses
-    const [courses, setCourses] = useState<any[]>(db.courses);
-
-    // initialize a single course
-    const [course, setCourse] = useState<any>({
-        _id: "0", 
-        name: "New Course", 
-        number: "New Number",
-        startDate: "2023-09-10", 
-        endDate: "2023-12-15",
-        image: "/images/reactjs.jpg", 
-        description: "New Description"
-    });
-
-    const updateCourse = () => {
-        setCourses(
-            courses.map((c) => {
-                if (c._id === course._id) {
-                    return course;
-                } else {
-                    return c;
-                }
-            })
-        );
-    };
-
-    // add a new course
-    const addNewCourse = () => {
-        const newCourse = { ... course, _id: new Date().getTime().toString() };
-        setCourses([...courses, { ...course, ...newCourse }]);
-    };
-
-    // delete a course
-    const deleteCourse = (courseId: string) => {
-        setCourses(courses.filter((courese) => course.id !== courseId));
-    };
+export default function Dashboard(
+    { courses, course, setCourse, addNewCourse, deleteCourse, updateCourse }: {
+        courses: any[]; 
+        course: any; 
+        setCourse: (course: any) => void;
+        addNewCourse: () => void; 
+        deleteCourse: (course: any) => void;
+        updateCourse: () => void; 
+    }
+)
+{
     
     return (
         <div id="wd-dashboard">
             <h1 id="wd-dashboard-title">Dashboard</h1><hr />
-            <h5>New Course
+            <h5>
+                New Course
                 <button 
                     className="btn btn-primary float-end"
                     id="wd-add-new-course-click"
@@ -56,10 +31,16 @@ export default function Dashboard() {
                     Update
                 </button>
             </h5><hr/>
-            <input value={course.name} className="form-control mb-2"
-                   onChange={(e) => setCourse({ ...courses, name: e.target.value})} />
-            <textarea value={course.description} className="form-control"
-                   onChange={(e) => setCourse({ ...courses, description: e.target.value })} />
+            <input 
+                value={course.name} 
+                className="form-control mb-2"
+                onChange={(e) => setCourse({ ...courses, name: e.target.value})} 
+            />
+            <textarea 
+                value={course.description} 
+                className="form-control"
+                onChange={(e) => setCourse({ ...courses, description: e.target.value })} 
+            />
             <hr/>
             <h2 id="wd-dashboard-published">Published Courses ({courses.length})</h2><hr />
             <div id="wd-dashboard-courses" className="row">
@@ -104,5 +85,5 @@ export default function Dashboard() {
                 </div>
             </div>
         </div>
-    )
+    );
 }
