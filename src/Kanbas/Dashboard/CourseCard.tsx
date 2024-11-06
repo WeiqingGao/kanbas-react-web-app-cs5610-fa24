@@ -25,51 +25,54 @@ export default function CourseCard({
       <div className="card rounded-3 overflow-hidden">
         <img src="/images/reactjs.jpg" width="100%" height={160} alt="" />
         <div className="card-body">
-          <h5 className="wd-dashboard-course-title card-title">{course.name}</h5>
-          <p className="card-text overflow-y-hidden" style={{ maxHeight: 100 }}>
+          <h5 className="wd-dashboard-course-title card-title" style={{ fontSize: "21px", fontWeight: "bold" }}>{course.name}</h5>
+          <p className="card-text overflow-y-hidden" style={{ maxHeight: 100, fontSize: "16px" }}>
             {course.description}
           </p>
-
-          {currentUser.role === "STUDENT" && (
-            <>
-              <button
-                className={`btn ${isEnrolled ? "btn-danger" : "btn-success"} me-2`}
-                onClick={() => handleEnrollmentToggle(course._id, isEnrolled)}
-              >
-                {isEnrolled ? "Unenroll" : "Enroll"}
-              </button>
-              {isEnrolled && (
-                <Link
-                  to={`/Kanbas/Courses/${course._id}/Home`}
-                  className="btn btn-primary"
+          <div className="d-flex align-items-center justify-content-between mt-3 flex-nowrap">
+            {currentUser.role === "STUDENT" && (
+              <>
+                <button
+                  className={`btn ${isEnrolled ? "btn-danger" : "btn-success"} btn-sm me-2`}
+                  onClick={() => handleEnrollmentToggle(course._id, isEnrolled)}
                 >
-                  Go to Course
-                </Link>
-              )}
-            </>
-          )}
+                  {isEnrolled ? "Unenroll" : "Enroll"}
+                </button>
+                {isEnrolled && (
+                  <Link
+                    to={`/Kanbas/Courses/${course._id}/Home`}
+                    className="btn btn-primary btn-sm"
+                  >
+                    Go to Course
+                  </Link>
+                )}
+              </>
+            )}
 
-          {currentUser.role === "FACULTY" && (
-            <>
-              <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">
-                Go
-              </Link>
-              <button
-                onClick={() => deleteCourse(course._id)}
-                className="btn btn-danger float-end"
-                id="wd-delete-course-click"
-              >
-                Delete
-              </button>
-              <button
-                onClick={() => setCourse(course)}
-                className="btn btn-warning me-2 float-end"
-                id="wd-edit-course-click"
-              >
-                Edit
-              </button>
-            </>
-          )}
+            {currentUser.role === "FACULTY" && (
+              <>
+                <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary btn-sm me-2">
+                  Go
+                </Link>
+                <button
+                  onClick={() => deleteCourse(course._id)}
+                  className="btn btn-danger btn-sm me-2 float-end"
+                  id="wd-delete-course-click"
+                  style={{ padding: "10px 10px", fontSize: "16px", width: "70px", height: "40px" }}
+                >
+                  Delete
+                </button>
+                <button
+                  onClick={() => setCourse(course)}
+                  className="btn btn-warning btn-sm float-end"
+                  id="wd-edit-course-click"
+                  style={{ padding: "10px 10px", fontSize: "16px", width: "70px", height: "40px" }}
+                >
+                  Edit
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </div>
