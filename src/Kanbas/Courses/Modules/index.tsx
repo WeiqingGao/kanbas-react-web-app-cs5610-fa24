@@ -3,9 +3,10 @@ import ModulesControls from "./ModulesControl";
 import ModuleControlButtons from "./ModuleControlButtons";
 import { BsGripVertical } from "react-icons/bs";
 import { useParams } from "react-router";
-import { useState } from "react";
-import * as db from "../../Database";
-import { addModule, editModule, updateModule, deleteModule } from "./reducer";
+import { useState, useEffect } from "react";
+import * as coursesClient from "../client";
+import * as modulesClient from "./client";
+import { addModule, editModule, updateModule, deleteModule, setModules } from "./reducer";
 import { useSelector, useDispatch } from "react-redux";
 
 export default function Modules() {
@@ -13,6 +14,28 @@ export default function Modules() {
     const [moduleName, setModuleName] = useState("");
     const { modules } = useSelector((state: any) => state.modulesReducer);
     const dispatch = useDispatch();
+    const fetchModules = async () => {
+        const modules = await coursesClient.findModulesForCourse(cid as string);
+        dispatch(setModules(modules));
+    };
+    const createModuleForCourse = async () => {
+        if (!cid) return;
+        const newModule = { name: moduleName, course: cid };
+        const module = await coursesClient.createModuleForCourse(cid, newModule);
+        dispatch(addModule(module));
+    };
+    const removeModule = async (moduleId: string) => {
+        await modulesClient.deleteModule(moduleId);
+        dispatch(deleteModule(moduleId));
+    };
+    const saveModule = async (module: any) => {
+        await modulesClient.updateModule(module);
+        dispatch(updateModule(module));
+    };
+    
+    useEffect(() => {
+        fetchModules();
+    }, []);    
 
     return (
         <div className="wd-modules">
@@ -21,10 +44,7 @@ export default function Modules() {
                 <ModulesControls 
                     moduleName={moduleName} 
                     setModuleName={setModuleName}
-                    addModule={() => {
-                        dispatch(addModule({ name: moduleName, course: cid }));
-                        setModuleName("");
-                    }} 
+                    addModule={createModuleForCourse}
                 />
             </div>
 
@@ -32,7 +52,6 @@ export default function Modules() {
             <div className="card">
                 <ul id="wd-modules" className="list-group rounded-0">
                     {modules
-                        .filter((module: any) => module.course === cid)
                         .map((module: any) => (
                             <li key={module._id} className="list-group-item border mb-3">
                                 {/* Module Header */}
@@ -50,9 +69,7 @@ export default function Modules() {
                                                 }
                                                 onKeyDown={(e) => {
                                                     if (e.key === "Enter") {
-                                                        dispatch(
-                                                            updateModule({ ...module, editing: false })
-                                                        );
+                                                            saveModule({ ...module, editing: false });
                                                     }
                                                 }}
                                                 defaultValue={module.name}
@@ -61,9 +78,7 @@ export default function Modules() {
                                     </div>
                                     <ModuleControlButtons 
                                         moduleId={module._id}
-                                        deleteModule={(moduleId) => {
-                                            dispatch(deleteModule(moduleId));
-                                        }}
+                                        deleteModule={(moduleId) => removeModule(moduleId)}
                                         editModule={(moduleId) => {
                                             dispatch(editModule(moduleId));
                                         }}
