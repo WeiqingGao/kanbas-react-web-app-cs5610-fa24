@@ -22,10 +22,15 @@ export default function Dashboard({
   updateCourse: () => void;
 }) {
   const dispatch = useDispatch();
+
+  // Redux 状态
   const currentUser = useSelector((state: RootState) => state.accountReducer.currentUser) as User | null;
   const enrollments = useSelector((state: RootState) => state.enrollmentReducer.enrollments);
+
+  // 本地状态
   const [showAllCourses, setShowAllCourses] = useState(false);
 
+  // 加载 enrollments 到 Redux
   useEffect(() => {
     const storedEnrollments = JSON.parse(localStorage.getItem("enrollments") || "[]");
     if (storedEnrollments.length) {
@@ -33,8 +38,9 @@ export default function Dashboard({
     }
   }, [dispatch]);
 
+  // 保存 enrollments 到 localStorage
   useEffect(() => {
-    if (currentUser) {  // Only run if currentUser is defined
+    if (currentUser) {
       const saveEnrollmentsToLocalStorage = () => {
         const userEnrollments = enrollments.filter(
           (enrollment) => enrollment.user === currentUser._id
@@ -45,28 +51,29 @@ export default function Dashboard({
     }
   }, [enrollments, currentUser]);
 
+  // 注册/取消注册课程
   const handleEnrollmentToggle = (courseId: string, isEnrolled: boolean) => {
-    if (currentUser) {  // Check if currentUser is defined before dispatching actions
-      if (isEnrolled) {
-        dispatch(unenrollCourse({ userId: currentUser._id, courseId }));
-      } else {
-        dispatch(enrollCourse({ userId: currentUser._id, courseId }));
-      }
+    if (!currentUser) return;
+    if (isEnrolled) {
+      dispatch(unenrollCourse({ userId: currentUser._id, courseId }));
+    } else {
+      dispatch(enrollCourse({ userId: currentUser._id, courseId }));
     }
   };
 
+  // 渲染
   return (
     <div id="wd-dashboard">
       {currentUser?.role === "FACULTY" && (
         <>
           <DashboardHeader addNewCourse={addNewCourse} updateCourse={updateCourse} />
           <input
-            value={course.name}
+            value={course?.name || ""}
             className="form-control mb-2"
             onChange={(e) => setCourse({ ...course, name: e.target.value })}
           />
           <textarea
-            value={course.description}
+            value={course?.description || ""}
             className="form-control"
             onChange={(e) => setCourse({ ...course, description: e.target.value })}
           />
