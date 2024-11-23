@@ -8,6 +8,7 @@ import { useState, useEffect } from "react";
 import ProtectedRoute from "./Account/ProtectedRoute";
 import Session from "./Account/Session";
 import * as userClient from "./Account/client";
+import * as courseClient from "./Courses/client";
 import { useSelector } from "react-redux";
 
 interface Course {
@@ -17,8 +18,8 @@ interface Course {
 }
 
 export default function Kanbas() {
-    const [courses, setCourses] = useState<Course[]>([]); // 课程列表
-    const [selectedCourse, setSelectedCourse] = useState<Course | null>(null); // 当前选择的课程
+    const [course, setCourses] = useState<Course[]>([]); 
+    const [selectedCourse, setSelectedCourse] = useState<Course | null>(null); 
     const { currentUser } = useSelector((state: any) => state.accountReducer);
 
     const fetchCourses = async () => {
@@ -40,24 +41,22 @@ export default function Kanbas() {
         }
     }, [currentUser]);
 
-    const addNewCourse = () => {
-        const newCourse: Course = {
-            _id: new Date().getTime().toString(),
-            name: "New Course",
-            description: "Default course description",
-        };
+    const addNewCourse = async() => {
+        const newCourse = await userClient.createCourse(course);
         setCourses((prevCourses: Course[]) => [...prevCourses, newCourse]);
         console.log("New course added:", newCourse);
     };
 
-    const deleteCourse = (courseId: string) => {
+    const deleteCourse = async (courseId: string) => {
+        const status = await courseClient.deleteCourse(courseId);
         setCourses((prevCourses: Course[]) =>
             prevCourses.filter((course) => course._id !== courseId)
         );
         console.log("Course deleted:", courseId);
     };
 
-    const updateCourse = () => {
+    const updateCourse = async() => {
+        await courseClient.updateCourse(course);
         if (!selectedCourse) {
             console.warn("No course selected for update.");
             return;
@@ -83,7 +82,7 @@ export default function Kanbas() {
                             element={
                                 <ProtectedRoute>
                                     <Dashboard
-                                        courses={courses}
+                                        courses={course}
                                         course={selectedCourse}
                                         setCourse={setSelectedCourse}
                                         addNewCourse={addNewCourse}
@@ -97,7 +96,7 @@ export default function Kanbas() {
                             path="Courses/:cid/*"
                             element={
                                 <ProtectedRoute>
-                                    <Courses courses={courses} />
+                                    <Courses courses={course} />
                                 </ProtectedRoute>
                             }
                         />
