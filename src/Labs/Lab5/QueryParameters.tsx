@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 const REMOTE_SERVER = process.env.REACT_APP_REMOTE_SERVER;
 
-const QueryParameters = () => {
-    const [a, setA] = useState<number>(0);
-    const [b, setB] = useState<number>(0);
+export default function QueryParameters() {
+    const [a, setA] = useState<number>(34);
+    const [b, setB] = useState<number>(23);
 
     return (
         <div id="wd-query-parameters">
