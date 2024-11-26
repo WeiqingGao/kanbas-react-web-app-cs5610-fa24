@@ -1,15 +1,13 @@
-import { createSlice, createAsyncThunk, PayloadAction } from "@reduxjs/toolkit";
-import * as client from "./client";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-export interface Assignment {
+interface Assignment {
   _id: string;
   title: string;
-  course: string;
   description: string;
   points: number;
+  dueDate: string;
   availableFrom: string;
   availableUntil: string;
-  dueDate: string;
 }
 
 interface AssignmentsState {
@@ -20,50 +18,37 @@ const initialState: AssignmentsState = {
   assignments: [],
 };
 
-export const fetchAssignments = createAsyncThunk<Assignment[]>(
-  "assignments/fetchAssignments",
-  async () => {
-    return await client.fetchAllAssignments();
-  }
-);
-
-export const addNewAssignment = createAsyncThunk<Assignment, Assignment>(
-  "assignments/addNewAssignment",
-  async (assignment) => {
-    return await client.createAssignment(assignment);
-  }
-);
-
-export const deleteExistingAssignment = createAsyncThunk<string, string>(
-  "assignments/deleteExistingAssignment",
-  async (assignmentId) => {
-    await client.deleteAssignment(assignmentId);
-    return assignmentId;
-  }
-);
-
-export const updateAssignment = createAsyncThunk<Assignment, Assignment>(
-    "assignments/updateAssignment",
-    async (assignment) => {
-        return await client.updateAssignment(assignment);
-    }
-);
-
 const assignmentsSlice = createSlice({
   name: "assignments",
   initialState,
-  reducers: {},
-  extraReducers: (builder) => {
-    builder.addCase(fetchAssignments.fulfilled, (state, action: PayloadAction<Assignment[]>) => {
+  reducers: {
+    setAssignments: (state, action: PayloadAction<Assignment[]>) => {
       state.assignments = action.payload;
-    });
-    builder.addCase(addNewAssignment.fulfilled, (state, action: PayloadAction<Assignment>) => {
+    },
+    addAssignment: (state, action: PayloadAction<Assignment>) => {
       state.assignments.push(action.payload);
-    });
-    builder.addCase(deleteExistingAssignment.fulfilled, (state, action: PayloadAction<string>) => {
-      state.assignments = state.assignments.filter((a) => a._id !== action.payload);
-    });
+    },
+    deleteAssignment: (state, action: PayloadAction<string>) => {
+      state.assignments = state.assignments.filter(
+        (assignment) => assignment._id !== action.payload
+      );
+    },
+    updateAssignment: (state, action: PayloadAction<Assignment>) => {
+      const index = state.assignments.findIndex(
+        (assignment) => assignment._id === action.payload._id
+      );
+      if (index !== -1) {
+        state.assignments[index] = action.payload;
+      }
+    },
   },
 });
+
+export const {
+  addAssignment,
+  deleteAssignment,
+  updateAssignment,
+  setAssignments,
+} = assignmentsSlice.actions;
 
 export default assignmentsSlice.reducer;

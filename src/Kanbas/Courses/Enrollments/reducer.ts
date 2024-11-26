@@ -1,60 +1,39 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import * as client from "./client";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Enrollment {
-    user: string;  
-    course: string; 
+  user: string;
+  course: string;
 }
 
 interface EnrollmentState {
-    enrollments: Enrollment[];
+  enrollments: Enrollment[];
 }
-  
+
 const initialState: EnrollmentState = {
-    enrollments: [], 
+  enrollments: JSON.parse(localStorage.getItem("enrollments") || "[]"),
 };
-  
-export const fetchEnrollments = createAsyncThunk<Enrollment[]>(
-    "enrollments/fetch",
-    async () => {
-      return await client.fetchAllEnrollments();
-    }
-);
-  
-export const enrollInCourse = createAsyncThunk<Enrollment, { userId: string; courseId: string }>(
-    "enrollments/enroll",
-    async ({ userId, courseId }) => {
-        return await client.enrollUserInCourse(userId, courseId);
-    }
-);
-  
-export const unenrollFromCourse = createAsyncThunk<
-    { user: string; course: string },
-    { userId: string; courseId: string }
-    >("enrollments/unenroll", async ({ userId, courseId }) => {
-    return await client.unenrollUserFromCourse(userId, courseId);
-});
-  
-const enrollmentsSlice = createSlice({
-    name: "enrollments",
-    initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder.addCase(fetchEnrollments.fulfilled, (state, action) => {
-            state.enrollments = action.payload;
-        });
-        builder.addCase(enrollInCourse.fulfilled, (state, action) => {
-            state.enrollments.push(action.payload); 
-        });
-        builder.addCase(unenrollFromCourse.fulfilled, (state, action) => {
-            state.enrollments = state.enrollments.filter(
-            (enrollment) =>
-                enrollment.user !== action.payload.user ||
-                enrollment.course !== action.payload.course
-            ); 
-        });
+
+const enrollmentSlice = createSlice({
+  name: 'enrollments',
+  initialState,
+  reducers: {
+    enrollCourse: (state, action: PayloadAction<{ userId: string; courseId: string }>) => {
+      const newEnrollment = { user: action.payload.userId, course: action.payload.courseId };
+      state.enrollments.push(newEnrollment);
+      localStorage.setItem("enrollments", JSON.stringify(state.enrollments));
     },
+    unenrollCourse: (state, action: PayloadAction<{ userId: string; courseId: string }>) => {
+      state.enrollments = state.enrollments.filter(
+        (enrollment) =>
+          !(enrollment.user === action.payload.userId && enrollment.course === action.payload.courseId)
+      );
+      localStorage.setItem("enrollments", JSON.stringify(state.enrollments));
+    },
+    loadEnrollments: (state, action: PayloadAction<Enrollment[]>) => {
+      state.enrollments = action.payload;
+    },
+  },
 });
-  
-  export default enrollmentsSlice.reducer;
-  
+
+export const { enrollCourse, unenrollCourse, loadEnrollments } = enrollmentSlice.actions;
+export default enrollmentSlice.reducer;
