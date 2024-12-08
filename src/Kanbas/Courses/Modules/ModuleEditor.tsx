@@ -9,7 +9,6 @@ export default function ModuleEditor({ dialogTitle, moduleName, setModuleName, a
                             {dialogTitle} 
                         </h1>
                         <button type="button" className="btn-close" data-bs-dismiss="modal">
-
                         </button>
                     </div>
                     <div className="modal-body">
