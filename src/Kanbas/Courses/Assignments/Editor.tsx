@@ -23,8 +23,8 @@ export default function AssignmentEditor() {
 
   const createAssignment = async (assignment: any) => {
     const newAssignment = await assignmentsClient.createAssignment(
-      cid as string,
-      assignment
+        cid as string,
+        assignment
     );
     dispatch(addAssignment(newAssignment));
   };
@@ -38,214 +38,214 @@ export default function AssignmentEditor() {
 
   const handleSave = async () => {
     if (isEdit) {
-      
+
       await saveAssignment(editedAssignment);
-     
-     
+
+
     } else {
-     
+
       await createAssignment(editedAssignment);
-    
-      
+
+
     }
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };
-  
+
 
   const handleCancel = () => {
     navigate(`/Kanbas/Courses/${cid}/Assignments`);
   };
 
   return (
-    <div id="wd-assignments-editor" className="container">
-      <div className="m-4">
-        <label htmlFor="wd-name" id="wd-assignment-name" className="fw-bolder fs-5">
-          Assignment Name
-        </label>
-        <div className="mb-3">
-          <input
-            id="wd-name"
-            className="form-control"
-            value={editedAssignment.title}
-            onChange={(e) =>
-              setEditedAssignment({
-                ...editedAssignment,
-                title: e.target.value,
-              })
-            }
-          />
-        </div>
-      </div>
-
-      <div className="mb-3 border m-4">
-        <input
-          id="wd-description"
-          className="form-control"
-          value={editedAssignment.description}
-          onChange={(e) =>
-            setEditedAssignment({
-              ...editedAssignment,
-              description: e.target.value,
-            })
-          }
-        />
-      </div>
-
-      <div id="wd-assignments-editor-details">
-        <div className="row align-items-center m-4 justify-content-end">
-          <div className="col-auto">
-            <label htmlFor="wd-points" className="form-label">Points</label>
-          </div>
-          <div className="col-md-6">
+      <div id="wd-assignments-editor" className="container">
+        <div className="m-4">
+          <label htmlFor="wd-name" id="wd-assignment-name" className="fw-bolder fs-5">
+            Assignment Name
+          </label>
+          <div className="mb-3">
             <input
-              id="wd-points"
-              className="form-control"
-              value={editedAssignment.points}
-              onChange={(e) =>
-                setEditedAssignment({
-                  ...editedAssignment,
-                  points: e.target.value,
-                })
-              }
+                id="wd-name"
+                className="form-control"
+                value={editedAssignment.title}
+                onChange={(e) =>
+                    setEditedAssignment({
+                      ...editedAssignment,
+                      title: e.target.value,
+                    })
+                }
             />
           </div>
         </div>
 
-        {/* Assignment Group */}
-        <div className="row align-items-center m-4 justify-content-end">
-          <div className="col-auto">
-            <label htmlFor="wd-group" className="form-label">Assignment Group</label>
-          </div>
-          <div className="col-md-6">
-            <select id="wd-group" className="form-select">
-              <option selected>ASSIGNMENTS</option>
-              <option>QUIZZES</option>
-              <option>EXAMS</option>
-              <option>PROJECT</option>
-            </select>
-          </div>
-        </div>
-
-        {/* Display Grade As */}
-        <div className="row align-items-center m-4 justify-content-end">
-          <div className="col-auto">
-            <label htmlFor="wd-display-grade-as" className="form-label">Display Grade as</label>
-          </div>
-          <div className="col-md-6">
-            <select id="wd-display-grade-as" className="form-select">
-              <option selected>Percentage</option>
-            </select>
-          </div>
-        </div>
-
-        {/* Submission Type */}
-        <div className="row align-items-start m-4 justify-content-end">
-          <div className="col-auto align-top">
-            <label htmlFor="wd-submission-type" className="form-label">Submission Type</label>
-          </div>
-          <div className="col-md-6 border p-3">
-            <select id="wd-submission-type" className="form-select">
-              <option selected>Online</option>
-            </select>
-            <div className="m-3">
-              <label className="form-label">Online Entry Options</label>
-              <div>
-                <input type="checkbox" id="wd-text-entry" className="form-check-input" />
-                <label htmlFor="wd-text-entry" className="form-check-label">Text Entry</label>
-              </div>
-              <div>
-                <input type="checkbox" id="wd-website-url" className="form-check-input" />
-                <label htmlFor="wd-website-url" className="form-check-label">Website URL</label>
-              </div>
-              <div>
-                <input type="checkbox" id="wd-media-recordings" className="form-check-input" />
-                <label htmlFor="wd-media-recordings" className="form-check-label">Media Recordings</label>
-              </div>
-              <div>
-                <input type="checkbox" id="wd-student-annotation" className="form-check-input" />
-                <label htmlFor="wd-student-annotation" className="form-check-label">Student Annotation</label>
-              </div>
-              <div>
-                <input type="checkbox" id="wd-file-upload" className="form-check-input" />
-                <label htmlFor="wd-file-upload" className="form-check-label">File Uploads</label>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Assign Section with Light Gray Border */}
-        <div className="row align-items-start m-4 justify-content-end">
-          <div className="col-auto align-top">
-            <label htmlFor="wd-assign-details" className="form-label">Assign</label>
-          </div>
-          <div
-            id="wd-assign-details"
-            className="col-md-6"
-            style={{
-              border: "1px solid #ddd", 
-              padding: "15px",
-              borderRadius: "5px",
-            }}
-          >
-            <div className="col-md-6 m-2">
-              <label htmlFor="wd-assign-to" className="form-label">Assign to</label>
-              <input id="wd-assign-to" className="form-control" defaultValue="Everyone" />
-            </div>
-            <div className="col-md-6 m-2">
-              <label htmlFor="wd-due-date" className="form-label">Due</label>
-              <input
-                type="date"
-                id="wd-due-date"
-                className="form-control"
-                value={editedAssignment.dueDate}
-                onChange={(e) =>
+        <div className="mb-3 border m-4">
+          <input
+              id="wd-description"
+              className="form-control"
+              value={editedAssignment.description}
+              onChange={(e) =>
                   setEditedAssignment({
                     ...editedAssignment,
-                    dueDate: e.target.value,
+                    description: e.target.value,
                   })
-                }
+              }
+          />
+        </div>
+
+        <div id="wd-assignments-editor-details">
+          <div className="row align-items-center m-4 justify-content-end">
+            <div className="col-auto">
+              <label htmlFor="wd-points" className="form-label">Points</label>
+            </div>
+            <div className="col-md-6">
+              <input
+                  id="wd-points"
+                  className="form-control"
+                  value={editedAssignment.points}
+                  onChange={(e) =>
+                      setEditedAssignment({
+                        ...editedAssignment,
+                        points: e.target.value,
+                      })
+                  }
               />
             </div>
-            <div className="row">
-              <div className="col-md-6">
-                <label htmlFor="wd-available-from" className="form-label">Available from</label>
-                <input
-                  type="date"
-                  id="wd-available-from"
-                  className="form-control"
-                  value={editedAssignment.availableFromDate}
-                  onChange={(e) =>
-                    setEditedAssignment({
-                      ...editedAssignment,
-                      availableFromDate: e.target.value,
-                    })
-                  }
-                />
-              </div>
-              <div className="col-md-6">
-                <label htmlFor="wd-available-until" className="form-label">Until</label>
-                <input
-                  type="date"
-                  id="wd-available-until"
-                  className="form-control"
-                  value={editedAssignment.availableUntilDate}
-                  onChange={(e) =>
-                    setEditedAssignment({
-                      ...editedAssignment,
-                      availableUntilDate: e.target.value,
-                    })
-                  }
-                />
+          </div>
+
+          {/* Assignment Group */}
+          <div className="row align-items-center m-4 justify-content-end">
+            <div className="col-auto">
+              <label htmlFor="wd-group" className="form-label">Assignment Group</label>
+            </div>
+            <div className="col-md-6">
+              <select id="wd-group" className="form-select">
+                <option selected>ASSIGNMENTS</option>
+                <option>QUIZZES</option>
+                <option>EXAMS</option>
+                <option>PROJECT</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Display Grade As */}
+          <div className="row align-items-center m-4 justify-content-end">
+            <div className="col-auto">
+              <label htmlFor="wd-display-grade-as" className="form-label">Display Grade as</label>
+            </div>
+            <div className="col-md-6">
+              <select id="wd-display-grade-as" className="form-select">
+                <option selected>Percentage</option>
+              </select>
+            </div>
+          </div>
+
+          {/* Submission Type */}
+          <div className="row align-items-start m-4 justify-content-end">
+            <div className="col-auto align-top">
+              <label htmlFor="wd-submission-type" className="form-label">Submission Type</label>
+            </div>
+            <div className="col-md-6 border p-3">
+              <select id="wd-submission-type" className="form-select">
+                <option selected>Online</option>
+              </select>
+              <div className="m-3">
+                <label className="form-label">Online Entry Options</label>
+                <div>
+                  <input type="checkbox" id="wd-text-entry" className="form-check-input" />
+                  <label htmlFor="wd-text-entry" className="form-check-label">Text Entry</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="wd-website-url" className="form-check-input" />
+                  <label htmlFor="wd-website-url" className="form-check-label">Website URL</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="wd-media-recordings" className="form-check-input" />
+                  <label htmlFor="wd-media-recordings" className="form-check-label">Media Recordings</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="wd-student-annotation" className="form-check-input" />
+                  <label htmlFor="wd-student-annotation" className="form-check-label">Student Annotation</label>
+                </div>
+                <div>
+                  <input type="checkbox" id="wd-file-upload" className="form-check-input" />
+                  <label htmlFor="wd-file-upload" className="form-check-label">File Uploads</label>
+                </div>
               </div>
             </div>
           </div>
-        </div>
 
-        <div className="mt-3 float-end">
-          <button className="btn btn-secondary me-2" onClick={handleCancel}>Cancel</button>
-          <button className="btn btn-primary" onClick={handleSave}>Save</button>
+          {/* Assign Section with Light Gray Border */}
+          <div className="row align-items-start m-4 justify-content-end">
+            <div className="col-auto align-top">
+              <label htmlFor="wd-assign-details" className="form-label">Assign</label>
+            </div>
+            <div
+                id="wd-assign-details"
+                className="col-md-6"
+                style={{
+                  border: "1px solid #ddd",
+                  padding: "15px",
+                  borderRadius: "5px",
+                }}
+            >
+              <div className="col-md-6 m-2">
+                <label htmlFor="wd-assign-to" className="form-label">Assign to</label>
+                <input id="wd-assign-to" className="form-control" defaultValue="Everyone" />
+              </div>
+              <div className="col-md-6 m-2">
+                <label htmlFor="wd-due-date" className="form-label">Due</label>
+                <input
+                    type="date"
+                    id="wd-due-date"
+                    className="form-control"
+                    value={editedAssignment.dueDate}
+                    onChange={(e) =>
+                        setEditedAssignment({
+                          ...editedAssignment,
+                          dueDate: e.target.value,
+                        })
+                    }
+                />
+              </div>
+              <div className="row">
+                <div className="col-md-6">
+                  <label htmlFor="wd-available-from" className="form-label">Available from</label>
+                  <input
+                      type="date"
+                      id="wd-available-from"
+                      className="form-control"
+                      value={editedAssignment.availableFromDate}
+                      onChange={(e) =>
+                          setEditedAssignment({
+                            ...editedAssignment,
+                            availableFromDate: e.target.value,
+                          })
+                      }
+                  />
+                </div>
+                <div className="col-md-6">
+                  <label htmlFor="wd-available-until" className="form-label">Until</label>
+                  <input
+                      type="date"
+                      id="wd-available-until"
+                      className="form-control"
+                      value={editedAssignment.availableUntilDate}
+                      onChange={(e) =>
+                          setEditedAssignment({
+                            ...editedAssignment,
+                            availableUntilDate: e.target.value,
+                          })
+                      }
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-3 float-end">
+            <button className="btn btn-secondary me-2" onClick={handleCancel}>Cancel</button>
+            <button className="btn btn-primary" onClick={handleSave}>Save</button>
+          </div>
         </div>
       </div>
-    </div>
   );
 }

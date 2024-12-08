@@ -42,6 +42,7 @@ export default function Kanbas() {
     );
   };
 
+
   const fetchCourses = async () => {
     try {
       const allCourses = await courseClient.fetchAllCourses();
@@ -62,6 +63,15 @@ export default function Kanbas() {
   };
 
   const { currentUser } = useSelector((state: any) => state.accountReducer);
+  /* const fetchCourses = async () => {
+    let courses = [];
+    try {
+      const courses = await courseClient.fetchAllCourses();
+     setCourses(courses);
+   } catch (error) {
+     console.error(error);
+   }
+ }; */
 
   useEffect(() => {
     if (enrolling) {
@@ -127,5 +137,6 @@ export default function Kanbas() {
           </div>
         </div>
       </Session>
+
   );
 }
