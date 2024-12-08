@@ -1,7 +1,7 @@
 export default function AssignmentEdit({
-                                         assignmentId,
-                                         removeAssignment,
-                                       }: {
+  assignmentId,
+  removeAssignment,
+}: {
   assignmentId: string;
   removeAssignment: () => void;
 }) {

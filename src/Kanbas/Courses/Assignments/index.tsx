@@ -1,11 +1,11 @@
 import { useParams, useNavigate } from "react-router-dom";
-import AssignmentsControls from "./AssignmentsControls";
+import AssignmentsControls from "./Controls";
 import { BsGripVertical } from "react-icons/bs";
 import AssignControlButtons from "./AssignControlButtons";
 import { PiNotePencil } from "react-icons/pi";
 import { useDispatch, useSelector } from "react-redux";
 import { FaTrash } from "react-icons/fa6";
-import LessonControlButtons from "./AssignmentsControlButtons";
+import LessonControlButtons from "./AssignmentsControlButton";
 import { setAssignments, deleteAssignment } from "./reducer";
 import AssignmentEdit from "./AssignmentEdit";
 import * as assignmentsClient from "./client";
